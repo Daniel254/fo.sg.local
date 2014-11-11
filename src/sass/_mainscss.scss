@@ -196,15 +196,9 @@
 //     text-align:center;
 //     width: 100%;
 //   }
-body {
-  text-align: center;
-}
 
-.home__first {
-  background: url("/assets/img/bg__home_slide1.jpg") center center;
-  background-size: cover;
-}
-.home__slide {
+
+.promo-slide {
   &_analytics {
     & > img {
       min-width: 80%;
@@ -214,3 +208,31 @@ body {
     
   }
 }
+
+/* Home slide */
+.promo-slide_type_home {
+  background: url("/assets/img/bg__home_slide1.jpg") center center;
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+  & .promo-slide__inner {
+    @extend %absoluteCenter;
+    height: 30%;
+  }
+}
+
+.home {
+  &__slogan {
+    display: block;
+    margin-bottom: 3vh;
+    @include fonts(24, $roboto_medium);
+    
+  }
+  &__header {
+    display: block;
+    @include fonts(50, $code-pro_bold, bold);
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+}
+/* // Home slide */

@@ -55,22 +55,46 @@
 //+font-face("Myriad Pro Regular", font-files("myriadproregular.woff", woff))
 //+font-face("Myriad Pro Light", font-files("myriadpro-light.woff", woff))
 +font-face("Roboto Light", font-files("roboto-light.ttf", ttf))
++font-face("Roboto Regular", font-files("roboto-regular.ttf", ttf))
++font-face("Code Pro", font-files("code-pro.otf", otf))
++font-face("Code Pro Bold", font-files("code-pro-bold.otf", otf))
+
+
+$roboto_light: "Roboto Light", Arial, Helvetica, sans-serif
+$roboto_regular: "Roboto Regular", Arial, Helvetica, sans-serif
+$roboto_medium: ""
+$code-pro: "Code Pro", Arial, Helvetica, sans-serif
+$code-pro_bold: "Code Pro Bold", Arial, Helvetica, sans-serif
+
 
 // Colors
 $h2_color: #615c88
 $h2_size: 32px
-.absoluteCenter
+
+=fonts ($font-size, $font-family: $roboto_light, $font-weight: normal)
+	@if $font-family == $roboto_medium
+		$font-family: $roboto_regular
+		$font-weight: bold
+	font:
+		weight: $font-weight
+		family: $font-family
+	+fs ($font-size)
+
+%absoluteCenter
 	position: absolute
 	margin: auto
-	overflow: auto
+	//overflow: auto
 	top: 0
 	left: 0
 	bottom: 0
 	right: 0
-	
+
+html
+	font-size: 10px
+body
+	text-align: center
 h2
-	font-family: Roboto Light, Arial, Harvetica, sans-serif
-	color: $h2_color
-	font-size: $h2_size
+	font: $h2_size $roboto_light
+	color: $h2_color 
 	margin-top: 10vh
 	margin-bottom: 2vh 
