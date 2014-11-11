@@ -1,0 +1,54 @@
+<!doctype html>
+<!--[if lte IE 8]><html class="lteie8"><![endif]-->
+<!--[if gt IE 8]><!--><html><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Template</title>
+	<link rel="stylesheet" media="screen" href="/assets/css/screen.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/assets/js/jquery.onepage-scroll.js"></script>
+  
+	<!--[if lt IE 9]>
+	  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+  <div class="main">
+    <section id="home" class="page1 section active">
+      <div class="page_container">
+        <div class="title">Base Layer group1</div>
+      </div>
+      </div>
+    </section>
+    <section id="section1" class="page2 section">
+        <div class="page_container">
+        <!-- <div class="title">Raise sales, reduce costs and grow your business</div> -->
+        <ul class="buttons">
+          <li><a href="#" class="button icon-user">Clients</a></li>
+          <li><a href="#" class="button icon-flag">Tasks</a></li>
+          <li><a href="#" class="button icon-briefcase">Deals</a></li>
+          <li><a href="#" class="button icon-wallet">Finanse</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+  $(".main").onepage_scroll({
+   sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
+   easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+                                    // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+   animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+   pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+   updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+   beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
+   afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
+   loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+   keyboard: true,                  // You can activate the keyboard controls
+   responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
+                                    // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+                                    // the browser's width is less than 600, the fallback will kick in.
+   direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
+});</script>
+</body>
+</html>

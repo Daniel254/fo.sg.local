@@ -1,0 +1,320 @@
+// Normally main+page styles
+$susy: (global-box-sizing: border-box, math: static, columns: 9.2, column-width: 80px, gutters: 1 / 4, gutter-position: inside)
+//Colors
+
+
+%in
+	+container($susy)
+	//+gutters(40px inside)
+	//margin: 0 auto
+	//background: #000 20px 10px
+	//background: #000 right 1px
+%out
+	min-width: 920px
+%zub
+	position: relative
+	&:after, &:before
+		content: ""
+		position: absolute
+		display: block
+		height: 3px
+		width: 100%
+	&:after
+		background: inline-image("inline/bg__z_main_b.png") repeat-x
+	&:before
+		top: -3px
+		background: inline-image("inline/bg__z_main_t.png") repeat-x
+
+.mainnav
+	@extend %out
+	background: $sub
+	position: relative
+	&:after
+		content: ""
+		position: absolute
+		display: block
+		height: 3px
+		width: 100%
+		background: inline-image("inline/bg__z_sub.png") repeat-x
+	.mainnav__in
+		@extend %in
+		//+justify
+		height: 68px
+		line-height: 68px
+		&>*
+			display: inline-block
+		a
+			color: $main 
+			line-height: 2.5em
+			display: block
+			font-size: 1.17em 
+			
+		li
+			display: inline-block
+		li.active a, a:hover
+			color: #ffffff
+	ul a
+		padding: 0 10px
+	ul
+		width: 70%
+		text-align: center
+		
+	.social
+		float: right
+		a
+			display: inline-block
+			vertical-align: middle
+			
+		@each $s in fb,vk,tw
+			.social__#{$s}
+				+s(social__#{$s})
+				background-color: #FFF
+				&:hover
+					background-color: $main 
+				
+.article
+	@extend %out
+	overflow: hidden
+	.article__in
+		@extend %in
+		+justify
+		margin-top: 50px
+		padding-bottom: 20px
+
+	.article__item
+		display: inline-block
+		vertical-align: top
+		position: relative
+		&:first-child:before, &:last-child:before
+			content: "" 
+			background: url("../img/article__bg_l.svg") no-repeat
+			position: absolute
+			top: -24px
+			height: 78px
+			width: 94px
+			z-index: 1
+		&:first-child:before
+			left: -72px
+		&:last-child:before
+			right: -72px
+			transform: scaleX(-1)
+			filter: FlipH
+
+
+	.article__img
+		position: relative
+		width: 280px 
+		height: 160px
+		padding: 5px
+		border: 1px solid $gray
+		box-sizing: content-box
+		box-shadow: inset 0 0 0 6px rgba(255,255,255,.5)
+		img
+			display: inline-block
+			position: relative
+			z-index: -2
+		&:before, &:after
+			content: "" 
+			background: url("../img/article__bg_t.svg") no-repeat
+			position: absolute
+			right: 0
+			left: 0
+			margin: 0 auto
+			display: block
+			height: 11px
+			width: 66px
+		&:before
+			top: -15px
+		&:after
+			transform: rotate(180deg)
+			bottom: -15px
+	
+	.article__txt
+		width: 292px 
+		margin-top: 30px
+		text-align: left
+		span>a
+			display: inline
+			color: $txt
+			font-size: 1.14em 
+			line-height: 1.2
+		a:hover
+			text-decoration: underline
+
+.search
+	@extend %out
+	background: $main 
+	@extend %zub
+	.search__in
+		@extend %in
+		padding: 30px 0
+		color: #FFF 
+	.search__item
+		float: right
+		width: 700px
+		h2
+			padding-left: 13px
+	.services
+		a
+			color: #FFF 
+			font-size: 1.33em
+			line-height: 1.75
+			&:hover
+				color: $hover
+		li.active a, a:hover
+			color: $hover
+			text-decoration: underline
+
+.cont
+	@extend %out
+	.cont__in
+		@extend %in
+		padding: 35px 0
+		&>p
+			line-height: 1.44
+			margin-bottom: 17px
+
+.footer
+	@extend %out
+	background: $main
+	color: #FFF 
+	@extend %zub
+	.footer__in
+		@extend %in
+		padding: 30px 0
+	.footer__menu, .services, .footer__details
+		margin-right: 30px
+		font-size: 14px
+	.footer__menu, .services
+		float: left
+		a
+			color: #FFF
+			line-height: 1.5
+		li.active, a:hover
+			color: $hover 
+	.footer__details
+		line-height: 1.2
+		
+	.footer__informer
+		float: right
+		margin-left: 30px
+	.details__phone
+		display: inline-block
+		font-family: "Comic Sans MS", cursive, sans-serif
+		font-size: 20px
+		margin-top: 30px
+		&:before
+			content: ""
+			display: inline-block
+			+s(phone)
+			vertical-align: middle
+			margin-right: 10px
+.footer__copyright
+	@extend %out
+	background: $sub
+	color: #FFF
+	.copyright__in
+		@extend %in
+		height: 110px
+		position: relative
+	
+	.footer__cr
+		+span(3 of 10 no-gutters)
+		//font-size: 11px
+		margin: 43px 0 10px 0
+		//padding-top: 25px
+		position: relative
+		z-index: 1
+	.counter
+		+span(1 of 3 no-gutters)
+	.t-admin
+		+span(2 of 3 last no-gutters)
+		padding-top: 2px
+		a
+			text-decoration: underline
+			color: #FFF 
+			&:hover
+				text-decoration: none
+
+	
+	.copyright
+		position: absolute
+		right: 0
+		left: 0
+		text-align: center
+	
+
+.logo
+	background: url("../img/logo.png") no-repeat
+	+image-size("logo.png")
+	+hide-text
+.logo_footer
+	display: inline-block
+	margin: 17px 0 10px
+.logo_main
+	margin: 5px 20px 0 0
+	vertical-align: middle
+	float: left
+	
+.informer-valuta
+	display: inline-block
+	vertical-align: top
+	padding-right: 15px
+
+
+
+
+
+
+
+
+
+
+	// .footer__cr
+
+	// 	//+span(3 of 10 no-gutters)
+	// 	width: 300px
+	// 	display: inline-block
+	// 	font-size: 14px
+	// 	margin: 15px 0 10px 0
+	// .copyright
+	// 	padding: 1em 0 2em
+	// 	i
+	// 		font-style: normal
+
+	// .counter
+	// 	+span(1 of 3 no-gutters)
+	// .t-admin
+	// 	+span(2 of 3 last no-gutters)
+	// 	text-align: left
+	// 	a
+	// 		text-decoration: underline
+	// 		//color: $grey-txt_b
+	// 		&:hover
+	// 			text-decoration: none
+				
+
+
+
+
+// .pagination 
+// 	a
+// 		text-decoration: underline
+// 		padding: 2px 5px
+// 		margin: 2px
+// 	a:hover
+// 		text-decoration: none
+// 	.ditto_currentpage
+// 		font-weight: bold
+// 		padding: 2px 5px
+// 		margin: 2px
+// 	.ditto_previous_link, .ditto_next_link
+// 		text-decoration: none
+// 		padding: 2px 5px
+// 		margin: 2px
+// 		&:hover
+// 			text-decoration: underline
+// 	.ditto_page
+// 		padding: 2px 5px 
+// 	.ditto_off
+// 		display: none 
